@@ -2,10 +2,14 @@ const gql = require('graphql-tag');
 
 module.exports = gql`
     type User {
-        name: String
+        id: ID
+        email: String
+        firstName: String
+        lastName: String
+        avatar: String
     }
 
     type Query {
-        users: [User]
+        me: User
     }
 `;
