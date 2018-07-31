@@ -26,9 +26,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
 
+// read Auth header from the request and authenticate
+app.use('/graphql', (req, res, next) => {
+    passport.authenticate('jwt', (err, user) => {
+        if (err) return next(err);
+        req.login(user, { session: false }, err => {
+            if (err) return next(err);
+            next();
+        });
+    })(req);
+});
+
 const server = new ApolloServer({
     schema,
-    context: (req) => {
+    context: ({ req }) => {
         return {
             models,
             req,
