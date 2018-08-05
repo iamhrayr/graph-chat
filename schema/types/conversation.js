@@ -4,6 +4,7 @@ module.exports = gql`
     type Conversation {
         id: ID
         messages: [Message]
+        lastMessage: Message
         participants: [User]
     }
 

@@ -7,6 +7,6 @@ const ConversationSchema = new Schema({
         ref: 'User',
         type: Schema.Types.ObjectId,
     }],
-}, { timestamp: true });
+}, { timestamps: true });
 
 module.exports = mongoose.model('Conversation', ConversationSchema);

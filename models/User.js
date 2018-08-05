@@ -14,7 +14,7 @@ const UserSchema = new Schema({
     firstName: String,
     lastName: String,
     avatar: String,
-}, { timestamp: true });
+}, { timestamps: true });
 
 UserSchema.pre('save', function(next) {
     const user = this;

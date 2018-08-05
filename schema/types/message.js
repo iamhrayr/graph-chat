@@ -7,10 +7,6 @@ module.exports = gql`
         author: User
     }
 
-    # type Query {
-    #     messages(partner: ID): [Message]
-    # }
-
     type Mutation {
         newMessage(text: String, conversation: ID): Message
     }
