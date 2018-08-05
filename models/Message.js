@@ -4,12 +4,12 @@ const { Schema } = mongoose;
 
 const MessageSchema = new Schema({
     text: String,
-    from: {
+    author: {
         ref: 'User',
         type: Schema.Types.ObjectId,
     },
-    to: {
-        ref: 'User',
+    conversation: {
+        ref: 'Conversation',
         type: Schema.Types.ObjectId,
     },
 }, { timestamp: true });

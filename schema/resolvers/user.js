@@ -13,7 +13,7 @@ module.exports = {
     },
     Mutation: {
         login: (parent, { email, password }, { models }) => {
-            return new Promise((resolve, reject) => {
+            return new Promise((resolve) => {
                 return models.User
                     .findOne({ email })
                     .then(user => {
